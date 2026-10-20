@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hootle support</title>
+<meta name="description" content="Help with Hootle, the menu bar owl that keeps your Mac awake.">
+<link rel="canonical" href="https://hootle.suhi.app/support/">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<style>
+:root { color-scheme: light dark; --bg:#fff; --fg:#1b1d2a; --muted:#5b5f73; --accent:#3d43a8; --code:#f0f1f7; --line:#e3e4ee; }
+@media (prefers-color-scheme: dark) { :root { --bg:#12142b; --fg:#f2e8cb; --muted:#a3a8d4; --accent:#ffc23d; --code:#232750; --line:#343a6e; } }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+main { max-width:720px; margin:0 auto; padding:32px max(16px, env(safe-area-inset-right)) 64px max(16px, env(safe-area-inset-left)); }
+.back { display:inline-flex; align-items:center; gap:8px; color:var(--muted); text-decoration:none; font-size:14px; margin-bottom:24px; }
+.back img { width:22px; height:22px; }
+h1 { font-size:28px; line-height:1.25; margin:0 0 4px; }
+h1 + p { color:var(--muted); margin-top:0; }
+h2 { font-size:19px; margin:36px 0 8px; }
+a { color:var(--accent); overflow-wrap:anywhere; }
+.contact { border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin:24px 0; }
+.contact strong { display:block; }
+details { border-top:1px solid var(--line); padding:12px 0; }
+details:last-of-type { border-bottom:1px solid var(--line); }
+summary { cursor:pointer; font-weight:600; }
+details p { margin:8px 0 0; color:var(--muted); }
+kbd { background:var(--code); border-radius:4px; padding:1px 6px; font:13px ui-monospace, Menlo, monospace; }
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="../"><img src="../assets/favicon.svg" alt="">Hootle</a>
+<h1>Hootle support</h1>
+<p>Help with the menu bar owl that keeps your Mac awake.</p>
+
+<div class="contact">
+  <strong>Need a hand or found a bug?</strong>
+  Email <a href="mailto:hello@suhi.app?subject=Hootle%20support">hello@suhi.app</a>. Include your macOS version and what you expected to happen.
+</div>
+
+<h2>Using Hootle</h2>
+<details open>
+  <summary>How do I turn it on and off?</summary>
+  <p>When the owl's eyes are closed, click it once and it wakes up. Your Mac now stays awake. When its eyes are open, click it to see options: Turn Off Now, or turn off after 15 minutes, 30 minutes, 1 hour, 2 hours or 4 hours.</p>
+</details>
+<details>
+  <summary>How can I tell if it's on?</summary>
+  <p>Awake: the owl's eyes are open, it blinks, looks around and now and then waves or hops. Asleep: its eyes are closed and small z's float up. Your Mac is back to its normal sleep settings.</p>
+</details>
+<details>
+  <summary>Why did it hoot and ask "Anyone there?"</summary>
+  <p>Hootle checks in once if it has been on for 2 hours and nobody has used the keyboard, mouse or trackpad for 10 minutes. Choose Keep On to carry on, or Turn Off to let your Mac sleep. If you ignore it, it goes away 30 seconds after you start using the Mac again.</p>
+</details>
+<details>
+  <summary>Where did the owl go? How do I quit?</summary>
+  <p>Hootle lives in the menu bar at the top right of the screen, not in the Dock. If your menu bar is crowded, the owl may be hidden behind the camera notch; try closing other menu bar apps. To quit, click the owl while it's awake and choose Quit Hootle, or press <kbd>⌘Q</kbd> while the menu is open.</p>
+</details>
+<details>
+  <summary>Can Hootle start when I log in?</summary>
+  <p>Yes. Open System Settings → General → Login Items, click + under "Open at Login" and choose Hootle. It starts awake each time.</p>
+</details>
+
+<h2>Troubleshooting</h2>
+<details>
+  <summary>My Mac still went to sleep</summary>
+  <p>Closing the lid of a MacBook always puts it to sleep unless an external display, keyboard and power are connected. This is a macOS rule that no app can override. Your Mac may also sleep if the battery runs very low. Choosing Sleep from the Apple menu works as usual too.</p>
+</details>
+<details>
+  <summary>My screen still locked</summary>
+  <p>Hootle stops the screen from locking due to inactivity. Locking it yourself, with <kbd>⌃⌘Q</kbd>, a hot corner or by closing the lid, still works as normal.</p>
+</details>
+<details>
+  <summary>I can't hear the hoot</summary>
+  <p>The hoot plays through your Mac's normal sound output at a soft volume. Check that your Mac isn't muted and that the volume is up.</p>
+</details>
+<details>
+  <summary>How do I uninstall it?</summary>
+  <p>Quit Hootle, then drag it from the Applications folder to the Trash. It leaves nothing else behind.</p>
+</details>
+
+<h2>Privacy</h2>
+<p>Hootle collects no data and makes no network connections. Read the <a href="../privacy/">privacy policy</a>.</p>
+</main>
+</body>
+</html>
