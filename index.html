@@ -41,6 +41,7 @@
   nav .links a:hover { color: var(--cream); }
 
   .hero { position: relative; padding-block: 40px 72px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
+  .appicon { display: block; width: 112px; height: 112px; margin: 0 0 14px -12px; filter: drop-shadow(0 12px 24px rgba(0,0,0,.35)); }
   .hero h1 { font-size: clamp(56px, 10vw, 112px); font-weight: 800; letter-spacing: -.04em; line-height: .92; }
   .hero h1 span { color: var(--amber); }
   .hero p { font-size: clamp(18px, 2.2vw, 22px); color: var(--muted); max-width: 30ch; margin: 18px 0 28px; }
@@ -109,6 +110,7 @@
 
   <header class="hero">
     <div>
+      <img class="appicon" src="assets/icon-512.png" alt="Hootle app icon: an orange owl peeking over a mint tile" width="112" height="112">
       <span class="label">For your Mac menu bar</span>
       <h1>Hoot<span>le</span></h1>
       <p>A little owl that keeps your Mac awake. While its eyes are open, your Mac won't sleep, dim or lock.</p>
