@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Keep your Mac awake for AI agents, builds and downloads</title>
+<meta name="description" content="Keep your Mac awake while Claude Code, Codex, long builds, renders and downloads run, and let the screen lock to save power, with Hootle.">
+<meta property="og:title" content="Keep your Mac awake for AI agents, builds and downloads">
+<meta property="og:description" content="Keep your Mac awake while Claude Code, Codex, long builds, renders and downloads run, and let the screen lock to save power, with Hootle.">
+<meta property="og:image" content="https://hootle.suhi.app/assets/icon-512.png">
+<link rel="canonical" href="https://hootle.suhi.app/ai-agents-and-builds/">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<style>
+:root { color-scheme: light dark; --bg:#fff; --fg:#1b1d2a; --muted:#5b5f73; --accent:#3d43a8; --code:#f0f1f7; --line:#e3e4ee; }
+@media (prefers-color-scheme: dark) { :root { --bg:#12142b; --fg:#f2e8cb; --muted:#a3a8d4; --accent:#ffc23d; --code:#232750; --line:#343a6e; } }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+main { max-width:720px; margin:0 auto; padding:32px max(16px, env(safe-area-inset-right)) 64px max(16px, env(safe-area-inset-left)); }
+.back { display:inline-flex; align-items:center; gap:8px; color:var(--muted); text-decoration:none; font-size:14px; margin-bottom:24px; }
+.back img { width:22px; height:22px; }
+h1 { font-size:28px; line-height:1.25; margin:0 0 4px; }
+h1 + p { color:var(--muted); margin-top:0; }
+h2 { font-size:19px; margin:36px 0 8px; }
+a { color:var(--accent); overflow-wrap:anywhere; }
+.contact { border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin:24px 0; }
+.contact strong { display:block; }
+details { border-top:1px solid var(--line); padding:12px 0; }
+details:last-of-type { border-bottom:1px solid var(--line); }
+summary { cursor:pointer; font-weight:600; }
+details p { margin:8px 0 0; color:var(--muted); }
+kbd { background:var(--code); border-radius:4px; padding:1px 6px; font:13px ui-monospace, Menlo, monospace; }
+table { border-collapse:collapse; width:100%; margin:16px 0; font-size:15px; }
+th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+th { color:var(--muted); font-weight:600; }
+pre { background:var(--code); border-radius:8px; padding:12px 14px; overflow-x:auto; font:13px/1.5 ui-monospace, Menlo, monospace; }
+.cta { display:inline-block; margin:8px 0 0; padding:10px 18px; border-radius:999px; background:var(--accent); color:var(--bg); font-weight:600; text-decoration:none; }
+.more { margin-top:40px; padding-top:16px; border-top:1px solid var(--line); font-size:15px; color:var(--muted); }
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="../"><img src="../assets/favicon.svg" alt="">Hootle</a>
+<h1>Keep your Mac awake for AI agents, builds and downloads</h1>
+<p>Long jobs fail or pause when your Mac goes to sleep. Here's how to keep it running, and still let the screen lock.</p>
+
+<h2>Wake while your tools are open</h2>
+<p>In <a href="../">Hootle</a>'s Settings, under <strong>Wake Up for Apps</strong>, add the app your work runs in: Terminal, iTerm2, Ghostty, Warp, VS Code, Cursor, the Claude or ChatGPT app, Xcode, Final Cut Pro or Logic. Hootle stays awake while any of them is open and goes back to sleep when they all quit.</p>
+<p>To be clear about what this does: Hootle watches whether the app is <em>open</em>, not whether an agent or build inside it is busy. Quit the app, or click the owl, when you're done.</p>
+
+<h2>Let the screen lock, keep the Mac working</h2>
+<p>Untick <strong>Keep Screen On</strong> in Hootle's menu. Your Mac keeps running the job, but the display can dim, start the screen saver and lock like normal, which is safer if you walk away and kinder to your battery.</p>
+
+<h2>Know when it's done</h2>
+<p>Set a timer, or turn on <strong>Notify When On…</strong> to get a reminder every few hours that Hootle is still keeping your Mac awake. On battery power Hootle goes to sleep at 10% (you can change the level), so a forgotten job won't drain your MacBook.</p>
+
+<h2>What about the lid?</h2>
+<p>A MacBook still sleeps when you close the lid, unless it's on power with an external display, keyboard or mouse. Apps from the Mac App Store can't change that.</p>
+
+<h2>Prefer the command line?</h2>
+<p><code>caffeinate -i -w &lt;pid&gt;</code> keeps the Mac awake until a specific process ends. See <a href="../keep-mac-awake/">How to keep your Mac awake</a>.</p>
+<p><a class="cta" href="https://apps.apple.com/app/id6824888959">Get Hootle free on the Mac App Store</a></p>
+<p class="more">More guides: <a href="../keep-mac-awake/">How to keep your Mac awake</a> · <a href="../calls-and-presentations/">During calls and presentations</a> · <a href="../ai-agents-and-builds/">For AI agents, builds and downloads</a> · <a href="../amphetamine-alternative/">Hootle vs Amphetamine</a> · <a href="../support/">Support</a></p>
+</main>
+</body>
+</html>

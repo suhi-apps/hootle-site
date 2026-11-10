@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How to keep your Mac awake</title>
+<meta name="description" content="Three ways to stop your Mac from sleeping, dimming or locking: System Settings, the caffeinate command, and Hootle, a free menu bar app.">
+<meta property="og:title" content="How to keep your Mac awake">
+<meta property="og:description" content="Three ways to stop your Mac from sleeping, dimming or locking: System Settings, the caffeinate command, and Hootle, a free menu bar app.">
+<meta property="og:image" content="https://hootle.suhi.app/assets/icon-512.png">
+<link rel="canonical" href="https://hootle.suhi.app/keep-mac-awake/">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<style>
+:root { color-scheme: light dark; --bg:#fff; --fg:#1b1d2a; --muted:#5b5f73; --accent:#3d43a8; --code:#f0f1f7; --line:#e3e4ee; }
+@media (prefers-color-scheme: dark) { :root { --bg:#12142b; --fg:#f2e8cb; --muted:#a3a8d4; --accent:#ffc23d; --code:#232750; --line:#343a6e; } }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+main { max-width:720px; margin:0 auto; padding:32px max(16px, env(safe-area-inset-right)) 64px max(16px, env(safe-area-inset-left)); }
+.back { display:inline-flex; align-items:center; gap:8px; color:var(--muted); text-decoration:none; font-size:14px; margin-bottom:24px; }
+.back img { width:22px; height:22px; }
+h1 { font-size:28px; line-height:1.25; margin:0 0 4px; }
+h1 + p { color:var(--muted); margin-top:0; }
+h2 { font-size:19px; margin:36px 0 8px; }
+a { color:var(--accent); overflow-wrap:anywhere; }
+.contact { border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin:24px 0; }
+.contact strong { display:block; }
+details { border-top:1px solid var(--line); padding:12px 0; }
+details:last-of-type { border-bottom:1px solid var(--line); }
+summary { cursor:pointer; font-weight:600; }
+details p { margin:8px 0 0; color:var(--muted); }
+kbd { background:var(--code); border-radius:4px; padding:1px 6px; font:13px ui-monospace, Menlo, monospace; }
+table { border-collapse:collapse; width:100%; margin:16px 0; font-size:15px; }
+th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+th { color:var(--muted); font-weight:600; }
+pre { background:var(--code); border-radius:8px; padding:12px 14px; overflow-x:auto; font:13px/1.5 ui-monospace, Menlo, monospace; }
+.cta { display:inline-block; margin:8px 0 0; padding:10px 18px; border-radius:999px; background:var(--accent); color:var(--bg); font-weight:600; text-decoration:none; }
+.more { margin-top:40px; padding-top:16px; border-top:1px solid var(--line); font-size:15px; color:var(--muted); }
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="../"><img src="../assets/favicon.svg" alt="">Hootle</a>
+<h1>How to keep your Mac awake</h1>
+<p>Three ways to stop your Mac from sleeping, dimming its screen or locking, from built-in settings to a one-click app.</p>
+
+<h2>1. Change your Mac's settings</h2>
+<p>In System Settings, open <strong>Lock Screen</strong> and set "Turn display off when inactive" to a longer time or Never. On a MacBook, <strong>Battery › Options</strong> also has "Prevent automatic sleeping on power adapter when the display is off". The catch: these change your Mac for good, so you have to remember to change them back, or your battery and screen pay for it.</p>
+
+<h2>2. Use the caffeinate command</h2>
+<p>macOS has a built-in Terminal command. It keeps the Mac awake until you press <kbd>⌃C</kbd> or close the window:</p>
+<pre>caffeinate -d          # keep the display (and Mac) awake
+caffeinate -i          # keep the Mac awake, let the display sleep
+caffeinate -d -t 3600  # stay awake for one hour
+caffeinate -w 1234     # stay awake until process 1234 finishes</pre>
+<p>It's free and precise, but you need a Terminal window open and nothing tells you at a glance that it's running.</p>
+
+<h2>3. Use Hootle</h2>
+<p><a href="../">Hootle</a> is a free menu bar app: a little owl that keeps your Mac awake while its eyes are open. Click it to turn it on, click again to turn it off, or set a timer from 15 minutes to 4 hours, any length, or until a time of day. It can also turn itself on while apps like Zoom, Keynote or a terminal are open, and it knows when to stop: it goes to sleep when the timer ends, when the battery gets low, or when you've walked away.</p>
+
+<h2>Can I keep a MacBook awake with the lid closed?</h2>
+<p>Closing the lid puts a MacBook to sleep unless it's connected to power and an external display, keyboard or mouse (clamshell mode). Apps from the Mac App Store, Hootle included, can't override that.</p>
+<p><a class="cta" href="https://apps.apple.com/app/id6824888959">Get Hootle free on the Mac App Store</a></p>
+<p class="more">More guides: <a href="../keep-mac-awake/">How to keep your Mac awake</a> · <a href="../calls-and-presentations/">During calls and presentations</a> · <a href="../ai-agents-and-builds/">For AI agents, builds and downloads</a> · <a href="../amphetamine-alternative/">Hootle vs Amphetamine</a> · <a href="../support/">Support</a></p>
+</main>
+</body>
+</html>
