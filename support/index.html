@@ -43,7 +43,43 @@ kbd { background:var(--code); border-radius:4px; padding:1px 6px; font:13px ui-m
 <h2>Using Hootle</h2>
 <details open>
   <summary>How do I turn it on and off?</summary>
-  <p>When the owl's eyes are closed, click it once and it wakes up. Your Mac now stays awake. When its eyes are open, click it to see options: Turn Off Now, or turn off after 15 minutes, 30 minutes, 1 hour, 2 hours or 4 hours.</p>
+  <p>When the owl's eyes are closed, click it once and it wakes up. Your Mac now stays awake. When its eyes are open, click it to see options: Turn Off Now, or turn off after 15 minutes to 4 hours, a custom length, or at a time of day. You can also press <kbd>⌃⌥⌘H</kbd> from anywhere to turn it on or off; change or remove that shortcut in Settings.</p>
+</details>
+<details>
+  <summary>Where are the settings?</summary>
+  <p>Right-click the owl (or hold <kbd>⌃</kbd> or <kbd>⌥</kbd> and click) and choose Settings…. Right-clicking always opens the menu, even while the owl is asleep, so you can start a timer or quit at any time.</p>
+</details>
+<details>
+  <summary>Can Hootle turn on by itself for certain apps?</summary>
+  <p>Yes. In Settings → Wake Up for Apps, add apps like Zoom, Keynote or OBS. Hootle wakes while any of them is open and goes back to sleep when they all quit. If you turn Hootle off by hand while one is open, it stays off until that app quits.</p>
+</details>
+<details>
+  <summary>Will Hootle drain my battery?</summary>
+  <p>On battery power, Hootle goes to sleep when the battery reaches 10% so your Mac can save power. You can pick 5% to 30% or turn this off in Settings. If you turn Hootle back on afterwards, it stays on until you plug in.</p>
+</details>
+<details>
+  <summary>Can the screen lock while my Mac stays awake?</summary>
+  <p>Yes. Turn off Keep Screen On in the menu or in Settings. Your Mac keeps running downloads, builds and backups, but the screen can dim, start the screen saver and lock as usual.</p>
+</details>
+<details>
+  <summary>How do I change how the owl looks?</summary>
+  <p>Open Settings and pick Classic, Snowy, Barn or Pixel under Owl. Every owl is free. Seasonal touches add a witch hat in October and reindeer antlers in December; turn them off under the owls if you'd rather not.</p>
+</details>
+<details>
+  <summary>Can I use Hootle with Shortcuts or a Focus?</summary>
+  <p>Yes. The Shortcuts app has Turn Hootle On (optionally for a number of minutes), Turn Hootle Off, Toggle Hootle and Is Hootle On. To stay awake during a Focus, open System Settings → Focus, choose a Focus, add Hootle under Focus Filters and turn on "Keep Mac awake". Hootle goes back to sleep when that Focus ends, unless you turned it on yourself. Tools like Raycast or Alfred can open links such as <kbd>hootle://on?minutes=30</kbd>, <kbd>hootle://off</kbd> or <kbd>hootle://toggle</kbd>.</p>
+</details>
+<details>
+  <summary>What are Owl Stats?</summary>
+  <p>Choose Owl Stats… from the menu to see how long Hootle has kept your Mac awake today, this week, this month and in total, plus your longest stretch. Copy Image or Share… makes a card you can post. Stats are stored only on your Mac and are never sent anywhere.</p>
+</details>
+<details>
+  <summary>Is Hootle really free? What's Tip the Owl?</summary>
+  <p>Yes, every feature and every owl is free. Tip the Owl in Settings is an optional one-off tip through the App Store. It doesn't unlock anything; it just helps keep Hootle going. Apple handles the payment, and Hootle never sees your payment details.</p>
+</details>
+<details>
+  <summary>Why is the owl wearing a headset, or a nightcap?</summary>
+  <p>The owl dresses for the occasion. It wears a headset while Hootle is on and a call app (Zoom, Teams, FaceTime or Webex) is open, and a nightcap from 10 PM to 6 AM. Its eyes get heavy when a timer has less than 5 minutes left or the battery is low, and it watches your cursor when it comes near. None of this changes what Hootle does.</p>
 </details>
 <details>
   <summary>How can I tell if it's on?</summary>
@@ -51,33 +87,33 @@ kbd { background:var(--code); border-radius:4px; padding:1px 6px; font:13px ui-m
 </details>
 <details>
   <summary>Why did it hoot and ask "Anyone there?"</summary>
-  <p>Hootle checks in once if it has been on for 2 hours and nobody has used the keyboard, mouse or trackpad for 10 minutes. Choose Keep On to carry on, or Turn Off to let your Mac sleep. If you ignore it, it goes away 30 seconds after you start using the Mac again.</p>
+  <p>Hootle checks in if it has been on for 2 hours and nobody has used the keyboard, mouse or trackpad for 10 minutes. Choose Keep On to carry on, or Turn Off to let your Mac sleep. If nobody answers within 15 minutes, Hootle goes to sleep and leaves a note for when you're back. In Settings you can change the 2 hours, stop it from going to sleep, or turn the check off. It never asks while one of your Wake Up for Apps apps is keeping it on, so calls and presentations aren't interrupted.</p>
 </details>
 <details>
   <summary>Where did the owl go? How do I quit?</summary>
-  <p>Hootle lives in the menu bar at the top right of the screen, not in the Dock. If your menu bar is crowded, the owl may be hidden behind the camera notch; try closing other menu bar apps. To quit, click the owl while it's awake and choose Quit Hootle, or press <kbd>⌘Q</kbd> while the menu is open.</p>
+  <p>Hootle lives in the menu bar at the top right of the screen, not in the Dock. If your menu bar is crowded, the owl may be hidden behind the camera notch; try closing other menu bar apps. To quit, right-click the owl and choose Quit Hootle, or press <kbd>⌘Q</kbd> while the menu is open.</p>
 </details>
 <details>
   <summary>Can Hootle start when I log in?</summary>
-  <p>Yes. Open System Settings → General → Login Items, click + under "Open at Login" and choose Hootle. It starts awake each time.</p>
+  <p>Yes. Turn on Open at login in Hootle's Settings. You can also choose whether it starts awake, asleep, or the way you left it.</p>
 </details>
 
 <h2>Troubleshooting</h2>
 <details>
   <summary>My Mac still went to sleep</summary>
-  <p>Closing the lid of a MacBook always puts it to sleep unless an external display, keyboard and power are connected. This is a macOS rule that no app can override. Your Mac may also sleep if the battery runs very low. Choosing Sleep from the Apple menu works as usual too.</p>
+  <p>Closing the lid of a MacBook always puts it to sleep unless an external display, keyboard and power are connected. This is a macOS rule that no app can override. Hootle also goes to sleep by itself when a timer ends, a Wake Up for Apps app quits, the battery reaches your low-battery level, or nobody answers "Anyone there?". The menu and the note it shows tell you which. Choosing Sleep from the Apple menu works as usual too.</p>
 </details>
 <details>
   <summary>My screen still locked</summary>
-  <p>Hootle stops the screen from locking due to inactivity. Locking it yourself, with <kbd>⌃⌘Q</kbd>, a hot corner or by closing the lid, still works as normal.</p>
+  <p>Hootle stops the screen from locking due to inactivity while Keep Screen On is ticked in its menu. Locking it yourself, with <kbd>⌃⌘Q</kbd>, a hot corner or by closing the lid, still works as normal.</p>
 </details>
 <details>
   <summary>I can't hear the hoot</summary>
-  <p>The hoot plays through your Mac's normal sound output at a soft volume. Check that your Mac isn't muted and that the volume is up.</p>
+  <p>The hoot plays through your Mac's normal sound output at a soft volume. Check that Play hoot sounds is on in Hootle's Settings, that your Mac isn't muted and that the volume is up.</p>
 </details>
 <details>
   <summary>How do I uninstall it?</summary>
-  <p>Quit Hootle, then drag it from the Applications folder to the Trash. It leaves nothing else behind.</p>
+  <p>Quit Hootle, then drag it from the Applications folder to the Trash. The only thing it leaves is its small settings file, which macOS keeps inside Hootle's sandbox container.</p>
 </details>
 
 <h2>Privacy</h2>

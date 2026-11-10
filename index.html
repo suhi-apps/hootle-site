@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Hootle</title>
-<meta name="description" content="Hootle is a little owl in your Mac's menu bar that keeps your Mac awake. Click it and your Mac won't sleep, dim or lock.">
-<meta property="og:title" content="Hootle">
-<meta property="og:description" content="A little owl that keeps your Mac awake.">
+<meta name="description" content="Hootle is a little owl in your Mac's menu bar that keeps your Mac awake, and knows when to let it sleep. Wakes for Zoom and Keynote, saves your battery, sleeps when you walk away.">
+<meta property="og:title" content="Hootle: a tiny owl that keeps your Mac awake">
+<meta property="og:description" content="A tiny owl that keeps your Mac awake, and knows when to let it sleep.">
 <meta property="og:image" content="https://hootle.suhi.app/assets/icon-512.png">
 <meta property="og:url" content="https://hootle.suhi.app/">
 <link rel="canonical" href="https://hootle.suhi.app/">
@@ -47,9 +47,7 @@
   .hero p { font-size: clamp(18px, 2.2vw, 22px); color: var(--muted); max-width: 30ch; margin: 18px 0 28px; }
   .cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
   .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 999px; font-weight: 600; text-decoration: none; border: 1px solid var(--line); }
-  .btn.soon { background: var(--cream); color: var(--night); border-color: transparent; }
-  .btn.soon em { font-style: normal; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; background: var(--night); color: var(--amber); padding: 2px 8px; border-radius: 999px; }
-  .btn:hover:not(.soon), .btn:focus-visible { border-color: var(--amber); outline: none; }
+  .btn:hover, .btn:focus-visible { border-color: var(--amber); outline: none; }
   .stage { position: relative; aspect-ratio: 1; max-width: 420px; width: 100%; justify-self: center; }
   .stage::before { content: ""; position: absolute; inset: 6%; border-radius: 50%; background: radial-gradient(circle, rgba(90,95,184,.45), transparent 68%); }
   .stage canvas { position: relative; width: 100%; height: 100%; display: block; cursor: pointer; }
@@ -81,6 +79,19 @@
   .grid h3 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
   .grid p { margin: 0; color: var(--muted); font-size: 15px; }
 
+  .moods { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .mood { display: grid; justify-items: center; gap: 10px; padding: 22px 12px 18px; border: 1px solid var(--line); border-radius: 14px; background: linear-gradient(180deg, var(--dusk), var(--night)); text-align: center; min-width: 0; }
+  .mood canvas { width: 100%; max-width: 150px; aspect-ratio: 23 / 18; }
+  .mood h3 { font-size: 17px; font-weight: 600; }
+  .mood p { margin: 0; color: var(--muted); font-size: 14px; }
+  .lineup { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 14px; }
+  .new { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; background: var(--amber); color: var(--night); padding: 2px 8px; border-radius: 999px; vertical-align: middle; margin-left: 6px; }
+  .btn.store { background: var(--cream); color: var(--night); border-color: transparent; }
+  .btn.store:hover, .btn.store:focus-visible { background: var(--amber); }
+  .bar .menu .right { display: flex; justify-content: space-between; gap: 12px; }
+  .bar .menu .right span { color: var(--muted); }
+  kbd { font-family: var(--mono); font-size: .9em; background: var(--panel); border: 1px solid var(--line); border-radius: 5px; padding: 0 5px; }
+
   .specs { display: flex; flex-wrap: wrap; gap: 10px 28px; color: var(--muted); font-size: 15px; }
   .specs b { color: var(--cream); font-weight: 600; }
 
@@ -94,6 +105,7 @@
     .hero { grid-template-columns: 1fr; padding-top: 16px; }
     .stage { max-width: 300px; grid-row: 1; }
     .grid { grid-template-columns: 1fr; }
+    .moods { grid-template-columns: repeat(2, 1fr); }
     .bar .body { grid-template-columns: 1fr; padding: 18px; }
     .bar .menu { grid-row: 1; }
     nav .links .wide { display: none; }
@@ -113,15 +125,15 @@
       <img class="appicon" src="assets/icon-512.png" alt="Hootle app icon: an orange owl peeking over a mint tile" width="112" height="112">
       <span class="label">For your Mac menu bar</span>
       <h1>Hoot<span>le</span></h1>
-      <p>A little owl that keeps your Mac awake. While its eyes are open, your Mac won't sleep, dim or lock.</p>
+      <p>A tiny owl that keeps your Mac awake, and knows when to let it sleep.</p>
       <div class="cta">
-        <span class="btn soon">Mac App Store <em>soon</em></span>
-        <a class="btn" href="mailto:hello@suhi.app?subject=Hootle">hello@suhi.app</a>
+        <a class="btn store" href="https://apps.apple.com/app/id6824888959">Download on the Mac App Store</a>
+        <span class="label">Free · no data collected</span>
       </div>
     </div>
     <div class="stage">
       <canvas id="big" width="840" height="840" aria-label="Animated Hootle owl. Click to wake it or put it to sleep." role="img"></canvas>
-      <small id="hint">click the owl</small>
+      <small id="hint">click the owl · it's watching your cursor</small>
     </div>
   </header>
 </div>
@@ -131,25 +143,70 @@
     <span class="label">How it works</span>
     <h2>One click on, one click off</h2>
     <div class="bar">
-      <div class="strip" aria-hidden="true"><canvas id="small" width="46" height="36"></canvas><span>Tue 9:41</span></div>
+      <div class="strip" aria-hidden="true"><canvas id="small" width="46" height="36"></canvas><span>1h 12m</span><span>Tue 9:41</span></div>
       <div class="body">
         <div class="steps">
-          <div class="step"><span class="n">Off → on</span><h3>Click the owl</h3><p>It hops, opens its eyes and waves hello. Your Mac now stays awake for as long as you need.</p></div>
-          <div class="step"><span class="n">On → off</span><h3>Click it again</h3><p>Turn it off now, or pick a timer from 15 minutes to 4 hours. When time's up, the owl falls asleep.</p></div>
-          <div class="step"><span class="n">Away too long</span><h3>It checks in</h3><p>If it's been on for 2 hours and nobody has touched the Mac for 10 minutes, it hoots softly and asks if anyone's there.</p></div>
+          <div class="step"><span class="n">Off → on</span><h3>Click the owl</h3><p>It hops, opens its eyes and waves hello. Your Mac now stays awake for as long as you need. Or press <kbd>⌃⌥⌘H</kbd> from anywhere.</p></div>
+          <div class="step"><span class="n">Set a timer</span><h3>Right-click for more</h3><p>Stay awake for 15 minutes to 4 hours, any custom length, or until a time like 6 PM. The time left sits next to the owl.</p></div>
+          <div class="step"><span class="n">On → off</span><h3>Click it again</h3><p>Or let it decide: it goes to sleep when the timer ends, your app quits, the battery runs low or nobody's around.</p></div>
         </div>
         <div class="menu" aria-hidden="true">
-          <div class="muted">Awake for 1h 12m</div>
+          <div class="muted">Awake · sleeps in 1h 12m (10:53)</div>
           <hr>
           <div>Turn Off Now</div>
           <div class="muted">Turn off in…</div>
           <div class="in">15 minutes</div>
           <div class="in">1 hour</div>
-          <div class="in">4 hours</div>
+          <div class="in">Custom…</div>
+          <div class="in">Until a Time…</div>
           <hr>
-          <div>Quit Hootle</div>
+          <div>✓ Keep Screen On</div>
+          <div class="right">Notify When On… <span>›</span></div>
+          <hr>
+          <div class="right">Settings… <span>⌘,</span></div>
+          <div class="right">Quit Hootle <span>⌘Q</span></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="smart">
+  <div class="wrap">
+    <span class="label">New in 2.0 <span class="new">new</span></span>
+    <h2>Keeps your Mac awake, and knows when to stop</h2>
+    <div class="grid">
+      <div><h3>Wakes up for your apps</h3><p>Pick Zoom, Keynote, OBS or any app. Hootle turns on while it's open and goes back to sleep when it quits.</p></div>
+      <div><h3>Saves your battery</h3><p>On battery power it goes to sleep at 10% (you choose the level), so your MacBook never dies overnight.</p></div>
+      <div><h3>Notices when you've left</h3><p>On for hours with nobody around? It hoots "Anyone there?" and goes to sleep if nobody answers in 15 minutes.</p></div>
+      <div><h3>Timers, your way</h3><p>Any length, or until a time of day, with a countdown in the menu bar. Plus a global shortcut, <kbd>⌃⌥⌘H</kbd>.</p></div>
+      <div><h3>Screen on, or just the Mac</h3><p>Keep the screen lit for presenting, or let it dim and lock while a download or build keeps running.</p></div>
+      <div><h3>Opens at login</h3><p>Start awake, asleep or the way you left it, with hoot sounds on or off. All in a small Settings window.</p></div>
+      <div><h3>Shortcuts and Focus</h3><p>Turn Hootle on for 30 minutes from a shortcut, or keep your Mac awake whenever your Work Focus is on.</p></div>
+      <div><h3>Owl Stats</h3><p>See how long Hootle kept your Mac awake this week and month, and share a card of it. Stats never leave your Mac.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="owls">
+  <div class="wrap">
+    <span class="label">Pick your owl</span>
+    <h2>Classic, Snowy, Barn or Pixel. Every owl is free.</h2>
+    <img class="lineup" src="assets/owl-lineup.png" width="1040" height="420" loading="lazy"
+         alt="Eight Hootle owls: classic, snowy, barn and pixel skins, then a witch hat, reindeer antlers, a headset, and a sleeping owl in a nightcap">
+    <p style="margin:0;color:var(--muted)">Turn on seasonal touches for a witch hat in October and reindeer antlers in December. If Hootle saves your day, you can tip the owl in Settings.</p>
+  </div>
+</section>
+
+<section id="moods">
+  <div class="wrap">
+    <span class="label">Owl moods</span>
+    <h2>A little owl with a lot going on</h2>
+    <div class="moods">
+      <div class="mood"><canvas data-mood="awake" width="184" height="144" aria-hidden="true"></canvas><h3>Watching</h3><p>Its eyes follow your cursor.</p></div>
+      <div class="mood"><canvas data-mood="call" width="184" height="144" aria-hidden="true"></canvas><h3>On a call</h3><p>A headset while Zoom, Teams or FaceTime is open.</p></div>
+      <div class="mood"><canvas data-mood="sleepy" width="184" height="144" aria-hidden="true"></canvas><h3>Getting sleepy</h3><p>Heavy eyes when time's almost up or the battery is low.</p></div>
+      <div class="mood"><canvas data-mood="night" width="184" height="144" aria-hidden="true"></canvas><h3>Up late</h3><p>A nightcap from 10 PM, awake or asleep.</p></div>
     </div>
   </div>
 </section>
@@ -161,7 +218,7 @@
     <div class="grid">
       <div><h3>No sleep, no dimming, no lock</h3><p>Downloads, presentations, long builds and video calls keep going without the screen going dark.</p></div>
       <div><h3>You can tell at a glance</h3><p>Eyes open and blinking means awake. Eyes closed with floating z's means your Mac is back to normal.</p></div>
-      <div><h3>Messages that stay out of the way</h3><p>A short note and a tiny hoot when it turns on or off. It never steals focus from what you're doing.</p></div>
+      <div><h3>Messages that stay out of the way</h3><p>A short note and a tiny hoot when it turns on or off, and it tells you why. It never steals focus from what you're doing.</p></div>
       <div><h3>Private by design</h3><p>No account, no tracking, no network connections. Hootle doesn't collect anything. <a href="privacy/">Privacy policy</a></p></div>
     </div>
   </div>
@@ -175,6 +232,8 @@
       <span><b>Runs on</b> Apple silicon and Intel</span>
       <span><b>Lives in</b> the menu bar, not the Dock</span>
       <span><b>Data collected</b> none</span>
+      <span><b>Price</b> free, with optional tips</span>
+      <span><b>Works with</b> Shortcuts, Focus and <kbd>hootle://</kbd> links</span>
     </div>
   </div>
 </section>
@@ -199,7 +258,7 @@
 
   // Same owl and state machine as the Mac app.
   class Owl {
-    constructor() { this.awake = true; this.ts = -10; this.nextBlink = 1; this.blinkStart = -10; this.dbl = false; this.pupil = [0, 0]; this.target = [0, 0]; this.nextLook = 1; this.trick = null; this.nextTrick = 1.5; this.side = 1; this.wave = true; }
+    constructor() { this.awake = true; this.ts = -10; this.nextBlink = 1; this.blinkStart = -10; this.dbl = false; this.pupil = [0, 0]; this.target = [0, 0]; this.nextLook = 1; this.trick = null; this.nextTrick = 1.5; this.side = 1; this.wave = true; this.drowsy = 0; this.gaze = null; this.headset = false; this.nightcap = false; }
     set(awake, t) { this.awake = awake; this.ts = t; this.nextBlink = t + 1.6; this.trick = null; this.nextTrick = t + .7; this.wave = true; }
     pose(t) {
       const o = { open: 0, hop: 0, slide: 0, tilt: 0, lw: 0, rw: 0, z: null };
@@ -213,6 +272,7 @@
           if (b < .2) o.open = 1 - Math.sin(Math.PI * b / .2);
           else if (this.dbl && b > .26 && b < .46) o.open = 1 - Math.sin(Math.PI * (b - .26) / .2);
           if (t >= this.nextLook) { this.target = LOOKS[Math.floor(Math.random() * LOOKS.length)]; this.nextLook = t + rand(1.2, 3.5); }
+          if (this.gaze) this.target = this.gaze;
           o.hop = .3 * (1 + Math.sin(t * 2.4));
           if (!this.trick && t >= this.nextTrick) {
             const names = Object.keys(TRICKS);
@@ -229,6 +289,7 @@
             else if (this.trick === "scan") pupil = [Math.sin(q * Math.PI * 2) * 1.1 * this.side, 0];
           }
         }
+        if (p >= 1) o.open *= 1 - .45 * this.drowsy;
       } else {
         const p = clamp((t - this.ts) / .7);
         o.open = 1 - easeInOut(p); o.slide = 2.5 * (1 - easeInOut(p)); this.target = [0, 0];
@@ -236,6 +297,8 @@
       }
       this.pupil = [this.pupil[0] + (this.target[0] - this.pupil[0]) * .25, this.pupil[1] + (this.target[1] - this.pupil[1]) * .25];
       o.pupil = pupil || this.pupil;
+      o.headset = this.headset && this.awake;
+      o.nightcap = this.nightcap;
       return o;
     }
   }
@@ -274,6 +337,8 @@
       }
     }
     ctx.beginPath(); ctx.moveTo(cx - .8, 5); ctx.lineTo(cx + .8, 5); ctx.lineTo(cx, 3.3); ctx.closePath(); ctx.fill();
+    if (o.nightcap) nightcap(ctx, cx);
+    if (o.headset) headset(ctx, cx);
     ctx.restore();
     ctx.globalCompositeOperation = "source-over";
     if (o.z !== null) {
@@ -286,6 +351,49 @@
     }
   }
 
+  // Accessories are cut out with a thin transparent outline so they read against the body.
+  function outline(ctx, path, width) {
+    ctx.save(); ctx.globalCompositeOperation = "destination-out";
+    ctx.lineWidth = width; ctx.lineJoin = ctx.lineCap = "round"; ctx.stroke(path); ctx.restore();
+  }
+  function rounded(x, y, w, h, r) { const p = new Path2D(); p.roundRect(x, y, w, h, r); return p; }
+
+  function nightcap(ctx, cx) {
+    ctx.globalCompositeOperation = "destination-out"; ctx.fillRect(cx - 8, 11, 16, 7);
+    ctx.globalCompositeOperation = "source-over";
+    const cap = new Path2D();
+    cap.moveTo(cx + 6.4, 10.8); cap.quadraticCurveTo(cx + 5.6, 17.6, cx - .6, 17.4);
+    cap.quadraticCurveTo(cx - 4.6, 17.8, cx - 6.4, 14); cap.quadraticCurveTo(cx - 4, 13, cx - 6.4, 10.8); cap.closePath();
+    const pom = new Path2D(); pom.ellipse(cx - 7, 13.8, 1.4, 1.4, 0, 0, Math.PI * 2);
+    const brim = rounded(cx - 7.4, 9.4, 14.8, 2.3, 1.15);
+    outline(ctx, pom, 1.4); ctx.fill(cap); ctx.fill(pom);
+    outline(ctx, brim, 1.4); ctx.fill(brim);
+  }
+
+  function headset(ctx, cx) {
+    const band = new Path2D(); band.arc(cx, 8.6, 8.3, Math.PI * .08, Math.PI * .92);
+    const mic = new Path2D(); mic.moveTo(cx - 8.4, 7); mic.quadraticCurveTo(cx - 8.6, 2.4, cx - 3.4, 2.2);
+    const cups = [-1, 1].map(s => rounded(cx + s * 8.3 - 1.7, 7.2, 3.4, 4.6, 1.5));
+    ctx.globalCompositeOperation = "source-over";
+    outline(ctx, band, 3); outline(ctx, mic, 2.6); cups.forEach(c => outline(ctx, c, 1.6));
+    ctx.lineCap = "round";
+    ctx.lineWidth = 1.1; ctx.stroke(band);
+    ctx.lineWidth = .9; ctx.stroke(mic);
+    ctx.beginPath(); ctx.ellipse(cx - 3.45, 2.25, .95, .95, 0, 0, Math.PI * 2); ctx.fill();
+    cups.forEach(c => ctx.fill(c));
+  }
+
+  // Like the menu bar owl, the eyes follow the cursor.
+  let mouse = null;
+  addEventListener("pointermove", e => { mouse = [e.clientX, e.clientY]; });
+  document.documentElement.addEventListener("pointerleave", () => { mouse = null; });
+  function gazeFor(canvas) {
+    if (!mouse) return null;
+    const r = canvas.getBoundingClientRect();
+    const dx = mouse[0] - (r.left + r.width / 2), dy = (r.top + r.height / 2) - mouse[1], d = Math.hypot(dx, dy);
+    return d < r.width * .12 ? [0, 0] : [dx / d, .6 * dy / d];
+  }
+
   const cream = "#f2e8cb";
   const big = document.getElementById("big"), bigCtx = big.getContext("2d");
   const smallCtx = document.getElementById("small").getContext("2d");
@@ -294,11 +402,26 @@
   const hint = document.getElementById("hint");
   big.addEventListener("click", () => { hero.set(!hero.awake, now()); hint.textContent = hero.awake ? "awake · click to let it sleep" : "asleep · click to wake it"; });
 
+  const moods = [...document.querySelectorAll("[data-mood]")].map(canvas => {
+    const owl = new Owl(), mood = canvas.dataset.mood;
+    owl.headset = mood === "call";
+    owl.drowsy = mood === "sleepy" ? .9 : 0;
+    owl.nightcap = mood === "night";
+    if (mood === "night") owl.set(false, -10);
+    canvas.addEventListener("click", () => owl.set(!owl.awake, now()));
+    return { canvas, ctx: canvas.getContext("2d"), owl, watch: mood === "awake" };
+  });
+
   function frame() {
     const t = now();
+    hero.gaze = gazeFor(big);
     // Canvas is 840px square; the 23x18 owl is centered at 32px per unit.
     draw(bigCtx, hero.pose(t), cream, 32, 23, 18, (840 - 23 * 32) / 2, (840 - 18 * 32) / 2);
     draw(smallCtx, mini.pose(t), cream, 2);
+    for (const m of moods) {
+      if (m.watch) m.owl.gaze = gazeFor(m.canvas);
+      draw(m.ctx, m.owl.pose(t), cream, 8);
+    }
     if (!reduce || t < 2) requestAnimationFrame(frame);
   }
   frame();
